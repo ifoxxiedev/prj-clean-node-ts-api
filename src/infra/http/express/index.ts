@@ -4,7 +4,9 @@ import { TodoInMemoryRepository } from '@src/infra/db/todo-in-memory-repository'
 import express from 'express';
 
 const app = express();
+app.use(express.json())
 const port = process.env.PORT || 3333;
+
 
 const todoRepository = new TodoInMemoryRepository();
 

@@ -1,0 +1,13 @@
+### Create a todo
+POST http://localhost:3333/todo
+Content-Type: application/json
+
+{
+  "title": "Todo 1",
+  "description": "Todo description 1",
+  "isDone": false
+}
+
+### List todos
+GET http://localhost:3333/todo
+Accept: application/json
