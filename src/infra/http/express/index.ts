@@ -1,4 +1,5 @@
 import { CreateTodoUseCase } from '@src/application/create-todo.use-case';
+import { ListTodoUseCase } from '@src/application/list-todo-use-case';
 import { TodoInMemoryRepository } from '@src/infra/db/todo-in-memory-repository';
 import express from 'express';
 
@@ -15,7 +16,9 @@ app.post('/todo', async (req, res, next) => {
 
 app.get('/todo', async (req, res, next) => {
   // Let's go implement.
-  res.status(200).json([]);
+  const useCase = new ListTodoUseCase(todoRepository);
+  const output = await useCase.execute();
+  res.status(200).json(output);
 });
 
 app.listen(port)
